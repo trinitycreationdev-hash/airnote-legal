@@ -1,85 +1,531 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
   <title>AIRnote Terms & Conditions</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
+
       background: #0b0b0c;
+
       color: #ffffff;
-      padding: 20px;
-      line-height: 1.6;
+
+      font-family: Arial, sans-serif;
+
+      line-height: 1.8;
+
+      padding: 24px;
+
+      max-width: 920px;
+
+      margin: auto;
     }
-    h1, h2 {
-      color: #e53935;
+
+    h1 {
+
+      font-size: 38px;
+
+      font-weight: 800;
+
+      margin-bottom: 14px;
+
+      color: #03C75A;
+
+      letter-spacing: -1px;
     }
+
+    h2 {
+
+      margin-top: 34px;
+
+      margin-bottom: 14px;
+
+      color: #03C75A;
+
+      font-size: 24px;
+
+      font-weight: 700;
+    }
+
+    p {
+
+      color: #d2d2d2;
+
+      font-size: 15px;
+    }
+
+    ul {
+
+      padding-left: 22px;
+
+      margin-top: 12px;
+    }
+
+    li {
+
+      margin-bottom: 10px;
+
+      color: #d2d2d2;
+    }
+
+    .box {
+
+      background: #141417;
+
+      border: 1px solid rgba(255,255,255,0.05);
+
+      border-radius: 22px;
+
+      padding: 22px;
+
+      margin-top: 18px;
+    }
+
+    .date {
+
+      color: #8b8b8b;
+
+      margin-bottom: 26px;
+
+      font-size: 14px;
+    }
+
+    strong {
+      color: #ffffff;
+    }
+
+    .footer {
+
+      margin-top: 60px;
+
+      text-align: center;
+
+      color: #888;
+
+      font-size: 13px;
+    }
+
     a {
-      color: #ff8a80;
+
+      color: #03C75A;
+
+      text-decoration: none;
     }
+
   </style>
+
 </head>
+
 <body>
 
-<h1>Terms and Conditions</h1>
-<p>Last updated: 24 January 2026</p>
+  <h1>AIRnote Terms & Conditions</h1>
 
-<p>Welcome to <strong>AIRnote</strong>. By using this app, you agree to the following Terms and Conditions. If you do not agree, please do not use the app.</p>
+  <p class="date">
+    Last Updated: 13 May 2026
+  </p>
 
-<h2>1. About AIRnote</h2>
-<p>AIRnote is a community-based platform where users can share lifestyle-related notes such as fashion tips, travel guidance, and food recommendations. All content is created and shared by users.</p>
+  <div class="box">
 
-<h2>2. Eligibility</h2>
-<p>You must be at least <strong>13 years old</strong> to use AIRnote. If a user is found to be under 13, their account may be removed. Users can report accounts that appear to be under the minimum age.</p>
+    <p>
+      Welcome to <strong>AIRnote</strong>.
+    </p>
 
-<h2>3. User Accounts</h2>
-<p>Users must log in to use AIRnote. You are responsible for maintaining the security of your account and any activity that occurs under your account.</p>
+    <br>
 
-<p>You may delete your account at any time from within the app. After account deletion, your data will be permanently removed from our servers within <strong>7 days</strong>.</p>
+    <p>
+      AIRnote is an interest-based social platform where users share real-life
+      experiences through notes, topics, collections, comments, and discovery systems.
+    </p>
 
-<h2>4. User-Generated Content</h2>
-<p>All notes shared on AIRnote are created by users. AIRnote does not verify the accuracy of user content. Users should independently verify any information before acting on it.</p>
+    <br>
 
-<p>You are solely responsible for the content you share.</p>
+    <p>
+      By accessing or using AIRnote, you agree to these Terms & Conditions.
+      If you do not agree, please do not use the app.
+    </p>
 
-<h2>5. Prohibited Content</h2>
-<p>Users are strictly prohibited from posting:</p>
-<ul>
-  <li>Sexual or adult content</li>
-  <li>Hate speech, harassment, or violent content</li>
-  <li>Illegal activities or instructions</li>
-  <li>Spam, scams, or misleading information</li>
-</ul>
+  </div>
 
-<p>Any violation may result in content removal, account suspension, or permanent ban.</p>
+  <h2>1. Eligibility</h2>
 
-<h2>6. Reporting & Moderation</h2>
-<p>Users can report notes or accounts that violate these rules. The AIRnote team reviews reports and may take necessary action, including removal of content or accounts.</p>
+  <div class="box">
 
-<p>We reserve the right to remove any content or account at our discretion to maintain a safe community.</p>
+    <p>
+      You must be at least <strong>13 years old</strong> to use AIRnote.
+    </p>
 
-<h2>7. External Links</h2>
-<p>Notes may contain links to third-party websites. AIRnote is not responsible for the content, privacy policies, or practices of any external websites.</p>
+    <br>
 
-<h2>8. No Professional Advice</h2>
-<p>Content on AIRnote is for general information only and should not be considered professional, medical, legal, or financial advice.</p>
+    <p>
+      Accounts found violating minimum age requirements may be suspended or removed.
+    </p>
 
-<h2>9. Future Features & Monetization</h2>
-<p>Currently, AIRnote is completely free with no ads or paid features. In the future, features or monetization options may be added. Continued use of the app means acceptance of updated terms.</p>
+  </div>
 
-<h2>10. Limitation of Liability</h2>
-<p>AIRnote and its team are not responsible for any damages or losses resulting from the use of user-generated content or external links.</p>
+  <h2>2. User Accounts</h2>
 
-<h2>11. Changes to These Terms</h2>
-<p>We may update these Terms and Conditions from time to time. Changes will be posted within the app or on this page. Continued use of AIRnote means you accept the updated terms.</p>
+  <div class="box">
 
-<h2>12. Contact Us</h2>
-<p>If you have any questions or concerns about these Terms, contact us at:</p>
+    <ul>
 
-<p><strong>Email:</strong> trinitycreation.dev@gmail.com</p>
+      <li>Users are responsible for maintaining account security</li>
 
-<p><strong>AIRnote Team (by Trinity Creation)</strong></p>
+      <li>You are responsible for activity under your account</li>
+
+      <li>You may not impersonate others or use misleading identities</li>
+
+      <li>You may not create accounts for abusive or harmful purposes</li>
+
+    </ul>
+
+    <br>
+
+    <p>
+      AIRnote reserves the right to suspend or terminate accounts that violate these Terms.
+    </p>
+
+  </div>
+
+  <h2>3. User-Generated Content</h2>
+
+  <div class="box">
+
+    <p>
+      AIRnote allows users to post:
+    </p>
+
+    <br>
+
+    <ul>
+
+      <li>Notes</li>
+
+      <li>Images</li>
+
+      <li>Links</li>
+
+      <li>Comments and replies</li>
+
+      <li>Topic-based collections/pages</li>
+
+    </ul>
+
+    <br>
+
+    <p>
+      You retain ownership of the content you create.
+    </p>
+
+    <br>
+
+    <p>
+      However, by posting content on AIRnote, you grant AIRnote permission to
+      display, distribute, and process your content within the platform.
+    </p>
+
+  </div>
+
+  <h2>4. Public Content & Visibility</h2>
+
+  <div class="box">
+
+    <p>
+      AIRnote is a public social platform.
+    </p>
+
+    <br>
+
+    <p>
+      Content you post may become visible to other users through:
+    </p>
+
+    <br>
+
+    <ul>
+
+      <li>Home feeds</li>
+
+      <li>Explore systems</li>
+
+      <li>Topic pages</li>
+
+      <li>Comments and replies</li>
+
+      <li>Recommendations and discovery systems</li>
+
+    </ul>
+
+    <br>
+
+    <p>
+      Users should avoid sharing sensitive personal information publicly.
+    </p>
+
+  </div>
+
+  <h2>5. Prohibited Content</h2>
+
+  <div class="box">
+
+    <p>
+      Users may NOT post content involving:
+    </p>
+
+    <br>
+
+    <ul>
+
+      <li>Sexual or explicit adult content</li>
+
+      <li>Hate speech or harassment</li>
+
+      <li>Violence or threats</li>
+
+      <li>Illegal activities</li>
+
+      <li>Spam or scams</li>
+
+      <li>Copyright infringement</li>
+
+      <li>False or misleading harmful information</li>
+
+      <li>Malware, phishing, or malicious links</li>
+
+    </ul>
+
+    <br>
+
+    <p>
+      AIRnote may remove content or accounts violating these rules.
+    </p>
+
+  </div>
+
+  <h2>6. Reporting & Moderation</h2>
+
+  <div class="box">
+
+    <p>
+      Users may report notes, comments, profiles, or other content.
+    </p>
+
+    <br>
+
+    <p>
+      AIRnote may review reported content and take actions including:
+    </p>
+
+    <br>
+
+    <ul>
+
+      <li>Content removal</li>
+
+      <li>Temporary restrictions</li>
+
+      <li>Permanent account suspension</li>
+
+      <li>Moderation warnings</li>
+
+    </ul>
+
+  </div>
+
+  <h2>7. Interest-Based Recommendations</h2>
+
+  <div class="box">
+
+    <p>
+      AIRnote uses topics, interactions, and interests to personalize feeds,
+      recommendations, notifications, and discovery systems.
+    </p>
+
+    <br>
+
+    <p>
+      Recommendations may depend on:
+    </p>
+
+    <br>
+
+    <ul>
+
+      <li>Topics you follow</li>
+
+      <li>Notes you interact with</li>
+
+      <li>Likes and engagement</li>
+
+      <li>Comments and activity</li>
+
+    </ul>
+
+  </div>
+
+  <h2>8. External Links</h2>
+
+  <div class="box">
+
+    <p>
+      Notes may contain links to third-party websites or services.
+    </p>
+
+    <br>
+
+    <p>
+      AIRnote is not responsible for external websites,
+      their content, or their privacy practices.
+    </p>
+
+  </div>
+
+  <h2>9. Intellectual Property</h2>
+
+  <div class="box">
+
+    <p>
+      AIRnote branding, logos, designs, systems, and software are protected
+      intellectual property owned by AIRnote and/or Trinity Creation.
+    </p>
+
+    <br>
+
+    <p>
+      Users may not copy, reproduce, or distribute AIRnote assets without permission.
+    </p>
+
+  </div>
+
+  <h2>10. Account Termination</h2>
+
+  <div class="box">
+
+    <p>
+      Users may delete their account at any time.
+    </p>
+
+    <br>
+
+    <p>
+      AIRnote may suspend or terminate accounts for:
+    </p>
+
+    <br>
+
+    <ul>
+
+      <li>Violating these Terms</li>
+
+      <li>Abusive behavior</li>
+
+      <li>Security threats</li>
+
+      <li>Illegal activity</li>
+
+    </ul>
+
+  </div>
+
+  <h2>11. Disclaimer</h2>
+
+  <div class="box">
+
+    <p>
+      AIRnote content is created by users and is provided for informational
+      and social purposes only.
+    </p>
+
+    <br>
+
+    <p>
+      AIRnote does not guarantee the accuracy, reliability,
+      or completeness of user-generated content.
+    </p>
+
+  </div>
+
+  <h2>12. Limitation of Liability</h2>
+
+  <div class="box">
+
+    <p>
+      AIRnote and its team are not liable for damages,
+      losses, or issues resulting from:
+    </p>
+
+    <br>
+
+    <ul>
+
+      <li>User-generated content</li>
+
+      <li>Interactions between users</li>
+
+      <li>External websites or services</li>
+
+      <li>Temporary outages or technical issues</li>
+
+    </ul>
+
+  </div>
+
+  <h2>13. Changes to Terms</h2>
+
+  <div class="box">
+
+    <p>
+      AIRnote may update these Terms & Conditions at any time.
+    </p>
+
+    <br>
+
+    <p>
+      Continued use of the app after updates means you accept the revised Terms.
+    </p>
+
+  </div>
+
+  <h2>14. Contact</h2>
+
+  <div class="box">
+
+    <p>
+      For questions regarding these Terms:
+    </p>
+
+    <br>
+
+    <p>
+      <strong>Email:</strong>
+      <a href="mailto:trinitycreation.dev@gmail.com">
+        trinitycreation.dev@gmail.com
+      </a>
+    </p>
+
+  </div>
+
+  <div class="footer">
+
+    © 2026 AIRnote. All rights reserved.
+
+  </div>
 
 </body>
+
 </html>
