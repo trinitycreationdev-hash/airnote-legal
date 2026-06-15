@@ -3,91 +3,429 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Delete Your AIRnote Account</title>
+  <title>AIRnote — Delete Your Account</title>
   <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0a0a0a;
+      --surface: #111111;
+      --border: rgba(255,255,255,0.07);
+      --text-primary: #ffffff;
+      --text-secondary: #a0a0a0;
+      --text-muted: #555555;
+      --danger: #ff4444;
+      --danger-surface: rgba(255,68,68,0.05);
+      --danger-border: rgba(255,68,68,0.2);
+    }
+
+    html { scroll-behavior: smooth; }
+
     body {
-      font-family: Arial, sans-serif;
-      background: #0b0b0c;
-      color: #ffffff;
-      line-height: 1.7;
-      padding: 24px;
-      max-width: 900px;
-      margin: auto;
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      padding: 0 24px 80px;
+      max-width: 780px;
+      margin: 0 auto;
     }
-    h1, h2 {
-      color: #ff4d4d;
+
+    header {
+      padding: 64px 0 48px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 48px;
     }
-    .box {
-      background: #141417;
-      padding: 18px;
-      border-radius: 10px;
+
+    .label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: 42px;
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+    }
+
+    .meta {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+
+    .meta-item { display: flex; flex-direction: column; gap: 4px; }
+
+    .meta-item span:first-child {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+    }
+
+    .meta-item span:last-child {
+      font-size: 14px;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    section { margin-bottom: 48px; }
+
+    h2 {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
       margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
-    a {
-      color: #ff8080;
+
+    h2::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+    p { color: var(--text-secondary); margin-bottom: 14px; }
+    p:last-child { margin-bottom: 0; }
+
+    ul, ol { padding-left: 20px; margin: 12px 0; }
+    li { color: var(--text-secondary); margin-bottom: 8px; padding-left: 4px; }
+    li::marker { color: var(--text-muted); }
+
+    strong { color: var(--text-primary); font-weight: 600; }
+
+    /* ── Warning box ── */
+    .callout-danger {
+      background: var(--danger-surface);
+      border: 1px solid var(--danger-border);
+      border-left: 3px solid var(--danger);
+      border-radius: 0 12px 12px 0;
+      padding: 20px 24px;
+      margin: 20px 0;
+    }
+
+    .callout-danger p { color: var(--text-secondary); margin-bottom: 8px; }
+    .callout-danger p:last-child { margin-bottom: 0; }
+    .callout-danger strong { color: #ff6666; }
+
+    /* ── Normal callout ── */
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 20px 0;
+    }
+
+    .callout p { margin-bottom: 8px; }
+    .callout p:last-child { margin-bottom: 0; }
+
+    /* ── Steps ── */
+    .steps {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      margin: 20px 0;
+    }
+
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .step:last-child { border-bottom: none; }
+
+    .step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .step-content p {
+      margin: 0;
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    .step-content strong {
+      display: block;
+      font-size: 15px;
+      color: var(--text-primary);
+      margin-bottom: 2px;
+    }
+
+    /* ── Data table ── */
+    .data-table {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      margin: 20px 0;
+    }
+
+    .data-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+      gap: 16px;
+    }
+
+    .data-row:last-child { border-bottom: none; }
+
+    .data-row.header {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      font-weight: 600;
+      padding: 12px 20px;
+    }
+
+    .data-row span:first-child { color: var(--text-primary); font-weight: 500; }
+    .data-row span:last-child { color: var(--text-secondary); }
+
+    .deleted { color: #ff6666 !important; font-size: 13px; }
+    .retained { color: var(--text-muted) !important; font-size: 13px; }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding-top: 40px;
+      margin-top: 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    footer p { font-size: 13px; color: var(--text-muted); margin: 0; }
+    footer a { color: var(--text-secondary); text-decoration: none; font-size: 13px; }
+    footer a:hover { color: #fff; }
+
+    @media (max-width: 560px) {
+      h1 { font-size: 30px; }
+      body { padding: 0 16px 60px; }
+      header { padding: 40px 0 32px; }
+      .data-row { grid-template-columns: 1fr; gap: 4px; }
+      .data-row.header span:last-child { display: none; }
     }
   </style>
 </head>
-
 <body>
 
-<h1>How to Delete Your AIRnote Account</h1>
+  <header>
+    <p class="label">Account Management</p>
+    <h1>Delete Your Account</h1>
+    <p style="color:var(--text-secondary); max-width:520px; margin-top:12px;">
+      You can permanently delete your AIRnote account and all associated data
+      at any time. This page explains how to do it and what happens to your data.
+    </p>
+    <div class="meta">
+      <div class="meta-item">
+        <span>Operated By</span>
+        <span>Trinity Creation</span>
+      </div>
+      <div class="meta-item">
+        <span>Data Deleted Within</span>
+        <span>7 days of request</span>
+      </div>
+      <div class="meta-item">
+        <span>Contact</span>
+        <span>trinitycreation.dev@gmail.com</span>
+      </div>
+    </div>
+  </header>
 
-<div class="box">
-  <p>
-    AIRnote allows all users to permanently delete their account and associated data directly from within the app.
-    No external form or email request is required.
-  </p>
-</div>
+  <!-- Warning -->
+  <section id="warning">
+    <h2>Before You Delete</h2>
+    <div class="callout-danger">
+      <p>
+        <strong>Account deletion is permanent and cannot be undone.</strong>
+      </p>
+      <p>
+        Once you confirm deletion, your account, posts, and all associated data
+        will be permanently removed. There is no way to recover your account
+        or content after this action is completed.
+      </p>
+    </div>
+    <p>
+      If you are experiencing an issue with AIRnote, consider contacting us
+      first at
+      <a href="mailto:trinitycreation.dev@gmail.com"
+         style="color:#fff; text-decoration:underline;">
+        trinitycreation.dev@gmail.com
+      </a>
+      before deleting your account. We may be able to help.
+    </p>
+  </section>
 
-<h2>How to Delete Your Account</h2>
+  <!-- How to delete -->
+  <section id="how">
+    <h2>How to Delete Your Account</h2>
+    <p>
+      Account deletion is done entirely within the AIRnote app.
+      No email request or external form is required.
+    </p>
 
-<div class="box">
-  <ol>
-    <li>Open the AIRnote app</li>
-    <li>Go to your Profile screen</li>
-    <li>Open Settings</li>
-    <li>Tap on <strong>Delete Account</strong></li>
-    <li>Confirm your choice</li>
-  </ol>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <strong>Open the AIRnote app</strong>
+          <p>Make sure you are signed in to the account you want to delete.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <strong>Go to your Profile</strong>
+          <p>Tap the Profile icon in the bottom navigation bar.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <strong>Open Settings</strong>
+          <p>Tap the Settings icon in the top right corner of your profile.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <strong>Tap "Delete Account"</strong>
+          <p>Scroll to the bottom of Settings and tap Delete Account.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <strong>Confirm your decision</strong>
+          <p>Read the confirmation message and confirm. Your account will be scheduled for permanent deletion immediately.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <p>
-    Once confirmed, your account will be scheduled for deletion.
-  </p>
-</div>
+  <!-- What gets deleted -->
+  <section id="data">
+    <h2>What Happens to Your Data</h2>
+    <p>
+      Here is exactly what is deleted and what may be temporarily retained
+      after you delete your account.
+    </p>
 
-<h2>What Data Is Deleted</h2>
+    <div class="data-table">
+      <div class="data-row header">
+        <span>Data Type</span>
+        <span>What Happens</span>
+      </div>
+      <div class="data-row">
+        <span>Profile (username, bio, photo)</span>
+        <span class="deleted">Permanently deleted within 7 days</span>
+      </div>
+      <div class="data-row">
+        <span>Posts and text content</span>
+        <span class="deleted">Removed from public view immediately. Permanently deleted within 7 days</span>
+      </div>
+      <div class="data-row">
+        <span>Uploaded images</span>
+        <span class="deleted">Permanently deleted within 7 days</span>
+      </div>
+      <div class="data-row">
+        <span>Comments and replies</span>
+        <span class="deleted">Permanently deleted within 7 days</span>
+      </div>
+      <div class="data-row">
+        <span>Likes and interactions</span>
+        <span class="deleted">Permanently deleted within 7 days</span>
+      </div>
+      <div class="data-row">
+        <span>Following and followers list</span>
+        <span class="deleted">Permanently deleted within 7 days</span>
+      </div>
+      <div class="data-row">
+        <span>Authentication account</span>
+        <span class="deleted">Permanently deleted within 7 days</span>
+      </div>
+      <div class="data-row">
+        <span>Backup and system logs</span>
+        <span class="retained">May be retained temporarily in encrypted backups. Purged within 30 days.</span>
+      </div>
+      <div class="data-row">
+        <span>Legal or safety records</span>
+        <span class="retained">Retained only where required by Indian law or for ongoing legal/safety investigations.</span>
+      </div>
+    </div>
 
-<div class="box">
-  <p>When you delete your account, the following data will be removed:</p>
-  <ul>
-    <li>Your profile information (username, bio, photos)</li>
-    <li>Your notes and uploaded images</li>
-    <li>Your likes and interactions</li>
-    <li>Your authentication account</li>
-  </ul>
-</div>
+    <div class="callout">
+      <p>
+        <strong>Your posts are removed from public view immediately</strong>
+        upon account deletion. Other users will no longer be able to see
+        your content from the moment you confirm deletion.
+        Full data removal from all systems is completed within 7 days.
+      </p>
+    </div>
+  </section>
 
-<h2>Data Retention Period</h2>
+  <!-- Can't access account -->
+  <section id="cantaccess">
+    <h2>Can't Access Your Account?</h2>
+    <p>
+      If you are unable to log in to your account and want it deleted,
+      contact us directly and we will handle the deletion manually.
+    </p>
+    <div class="callout" style="margin-top:16px;">
+      <p><strong>Trinity Creation</strong></p>
+      <p style="margin-top:8px;">
+        Email:
+        <a href="mailto:trinitycreation.dev@gmail.com"
+           style="color:#fff; text-decoration:underline;">
+          trinitycreation.dev@gmail.com
+        </a>
+      </p>
+      <p style="margin-top:6px; font-size:13px; color:var(--text-muted);">
+        Include your registered email address and username in your request.
+        We will verify your identity and process the deletion within 7 days.
+      </p>
+    </div>
+  </section>
 
-<div class="box">
-  <p>
-    All personal data will be permanently deleted from our servers within
-    <strong>7 days</strong> after account deletion, unless longer retention is required by law.
-  </p>
-</div>
-
-<h2>Need Help?</h2>
-
-<div class="box">
-  <p>If you face any issues deleting your account, you can contact us at:</p>
-  <p><strong>Email:</strong> <a href="mailto:trinitycreation.dev@gmail.com">trinitycreation.dev@gmail.com</a></p>
-  <p><strong>AIRnote Team (Trinity Creation)</strong></p>
-</div>
-
-<p style="margin-top:40px; font-size:13px; color:#aaa;">
-  © 2026 AIRnote. All rights reserved.
-</p>
+  <footer>
+    <p>© 2026 AIRnote by Trinity Creation. All rights reserved.</p>
+    <div style="display:flex; gap:20px; flex-wrap:wrap;">
+      <a href="privacy_policy.html">Privacy Policy</a>
+      <a href="terms.html">Terms</a>
+      <a href="child_safety.html">Child Safety</a>
+      <a href="about.html">About</a>
+    </div>
+  </footer>
 
 </body>
 </html>
