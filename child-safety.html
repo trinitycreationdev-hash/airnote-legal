@@ -1,336 +1,582 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
   <meta charset="UTF-8" />
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
-
-  <title>AIRnote Child Safety Standards</title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AIRnote — Child Safety Standards</title>
   <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root {
+      --bg: #0a0a0a;
+      --surface: #111111;
+      --border: rgba(255,255,255,0.07);
+      --text-primary: #ffffff;
+      --text-secondary: #a0a0a0;
+      --text-muted: #555555;
     }
 
+    html { scroll-behavior: smooth; }
+
     body {
-
-      background: #0b0b0c;
-
-      color: #ffffff;
-
-      font-family: Arial, sans-serif;
-
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-size: 15px;
       line-height: 1.8;
+      padding: 0 24px 80px;
+      max-width: 780px;
+      margin: 0 auto;
+    }
 
-      padding: 24px;
+    header {
+      padding: 64px 0 48px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 48px;
+    }
 
-      max-width: 920px;
-
-      margin: auto;
+    .label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 16px;
     }
 
     h1 {
-
-      color: #03C75A;
-
-      font-size: 40px;
-
+      font-size: 42px;
       font-weight: 800;
-
-      letter-spacing: -1px;
-
-      margin-bottom: 12px;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      color: var(--text-primary);
+      margin-bottom: 20px;
     }
+
+    .meta {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+
+    .meta-item { display: flex; flex-direction: column; gap: 4px; }
+
+    .meta-item span:first-child {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+    }
+
+    .meta-item span:last-child {
+      font-size: 14px;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    nav {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 32px;
+      margin-bottom: 56px;
+    }
+
+    nav p {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    nav ol { list-style: none; columns: 2; column-gap: 32px; }
+    nav ol li { margin-bottom: 10px; break-inside: avoid; }
+    nav ol li a { color: var(--text-secondary); text-decoration: none; font-size: 13px; transition: color 0.15s; }
+    nav ol li a:hover { color: #fff; }
+    nav ol li .num { color: var(--text-muted); margin-right: 6px; font-size: 12px; }
+
+    section { margin-bottom: 56px; scroll-margin-top: 32px; }
 
     h2 {
-
-      color: #03C75A;
-
-      margin-top: 36px;
-
-      margin-bottom: 14px;
-
-      font-size: 24px;
-
-      font-weight: 700;
-    }
-
-    p {
-
-      color: #d7d7d7;
-
-      font-size: 15px;
-    }
-
-    ul {
-
-      padding-left: 22px;
-
-      margin-top: 12px;
-    }
-
-    li {
-
-      margin-bottom: 10px;
-
-      color: #d7d7d7;
-    }
-
-    .date {
-
-      color: #8c8c8c;
-
-      margin-bottom: 26px;
-
-      font-size: 14px;
-    }
-
-    .box {
-
-      background: #141417;
-
-      border: 1px solid rgba(255,255,255,0.05);
-
-      border-radius: 22px;
-
-      padding: 22px;
-
-      margin-top: 18px;
-    }
-
-    .highlight {
-
-      color: #03C75A;
-
-      font-weight: bold;
-    }
-
-    a {
-
-      color: #03C75A;
-
-      text-decoration: none;
-    }
-
-    .footer {
-
-      margin-top: 60px;
-
-      text-align: center;
-
-      color: #777;
-
       font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
+    h2::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+    h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 24px 0 10px;
+      letter-spacing: -0.3px;
+    }
+
+    p { color: var(--text-secondary); margin-bottom: 14px; }
+    p:last-child { margin-bottom: 0; }
+
+    ul { padding-left: 20px; margin: 12px 0; }
+    li { color: var(--text-secondary); margin-bottom: 8px; padding-left: 4px; }
+    li::marker { color: var(--text-muted); }
+
+    strong { color: var(--text-primary); font-weight: 600; }
+
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 20px 0;
+    }
+
+    .callout-important {
+      border-left: 3px solid #ffffff;
+      border-radius: 0 12px 12px 0;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .callout-critical {
+      border-left: 3px solid #ff4444;
+      border-radius: 0 12px 12px 0;
+      background: rgba(255,68,68,0.05);
+    }
+
+    .callout p { margin-bottom: 8px; }
+    .callout p:last-child { margin-bottom: 0; }
+
+    .badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.15);
+      color: var(--text-primary);
+      margin-bottom: 16px;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding-top: 40px;
+      margin-top: 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    footer p { font-size: 13px; color: var(--text-muted); margin: 0; }
+
+    @media (max-width: 560px) {
+      h1 { font-size: 30px; }
+      nav ol { columns: 1; }
+      body { padding: 0 16px 60px; }
+      header { padding: 40px 0 32px; }
+    }
   </style>
-
 </head>
-
 <body>
 
-  <h1>AIRnote Child Safety Standards</h1>
-
-  <p class="date">
-    Effective Date: 13 May 2026
-  </p>
-
-  <div class="box">
-
-    <p>
-      AIRnote is committed to creating a safe, respectful,
-      and responsible platform for all users.
+  <header>
+    <p class="label">Legal Document</p>
+    <h1>Child Safety Standards</h1>
+    <p style="color:var(--text-secondary); max-width:560px; margin-top:12px;">
+      AIRnote has zero tolerance for any content or behaviour that endangers,
+      exploits, abuses, or sexualises children in any way. This document
+      outlines our commitment, policies, and enforcement procedures.
     </p>
+    <div class="meta">
+      <div class="meta-item">
+        <span>Effective Date</span>
+        <span>15 June 2026</span>
+      </div>
+      <div class="meta-item">
+        <span>Operated By</span>
+        <span>Trinity Creation</span>
+      </div>
+      <div class="meta-item">
+        <span>Safety Contact</span>
+        <span>trinitycreation.dev@gmail.com</span>
+      </div>
+    </div>
+  </header>
 
-    <br>
+  <nav aria-label="Table of contents">
+    <p>Contents</p>
+    <ol>
+      <li><a href="#s1"><span class="num">01</span>Our Commitment</a></li>
+      <li><a href="#s2"><span class="num">02</span>Minimum Age Requirement</a></li>
+      <li><a href="#s3"><span class="num">03</span>Zero Tolerance Policy</a></li>
+      <li><a href="#s4"><span class="num">04</span>Prohibited Content &amp; Conduct</a></li>
+      <li><a href="#s5"><span class="num">05</span>How to Report</a></li>
+      <li><a href="#s6"><span class="num">06</span>Moderation &amp; Enforcement</a></li>
+      <li><a href="#s7"><span class="num">07</span>Cooperation With Authorities</a></li>
+      <li><a href="#s8"><span class="num">08</span>Parental Guidance</a></li>
+      <li><a href="#s9"><span class="num">09</span>NCMEC &amp; External Resources</a></li>
+      <li><a href="#s10"><span class="num">10</span>Safety Contact</a></li>
+    </ol>
+  </nav>
 
+  <!-- 1 -->
+  <section id="s1">
+    <h2>01 &nbsp; Our Commitment</h2>
+    <div class="callout callout-important">
+      <p>
+        <strong>AIRnote is unconditionally committed to child safety.</strong>
+        The protection of children is not a policy preference — it is a
+        non-negotiable principle that governs every decision we make as a platform.
+      </p>
+    </div>
     <p>
-      We have <span class="highlight">zero tolerance</span> for any form of
-      child sexual abuse, exploitation, grooming,
-      or harmful behavior involving minors.
+      AIRnote is a real-time experience sharing platform operated by
+      Trinity Creation. We understand that real-time, location-based social
+      platforms carry serious responsibility. We take that responsibility seriously.
     </p>
-
-  </div>
-
-  <h2>1. Minimum Age Requirement</h2>
-
-  <div class="box">
-
     <p>
-      AIRnote is intended only for users aged
-      <span class="highlight">13 years and older</span>.
+      We are committed to maintaining a platform that is safe, respectful,
+      and completely free from any content or behaviour that could harm,
+      exploit, or endanger children in any way.
     </p>
+  </section>
 
-    <br>
-
+  <!-- 2 -->
+  <section id="s2">
+    <h2>02 &nbsp; Minimum Age Requirement</h2>
     <p>
-      Accounts found to belong to users under 13 may be restricted,
-      suspended, or permanently removed.
+      AIRnote is intended exclusively for users who are
+      <strong>13 years of age or older.</strong>
     </p>
-
-  </div>
-
-  <h2>2. Zero Tolerance Policy</h2>
-
-  <div class="box">
-
     <p>
-      The following content and behavior are strictly prohibited:
+      By registering an account, users confirm that they meet this minimum
+      age requirement. Users between the ages of 13 and 17 are considered
+      minors and are subject to additional protections under this policy.
     </p>
-
-    <br>
-
+    <p>
+      If we discover or are informed that an account belongs to a user
+      under the age of 13, we will:
+    </p>
     <ul>
-
-      <li>Sexual content involving minors</li>
-
-      <li>Child sexual abuse material (CSAM)</li>
-
-      <li>Grooming or exploitation of children</li>
-
-      <li>Requests for explicit images involving minors</li>
-
-      <li>Harassment or predatory behavior toward minors</li>
-
-      <li>Sharing or promoting harmful child exploitation content</li>
-
-      <li>Attempts to contact minors for exploitative purposes</li>
-
+      <li>Immediately suspend the account</li>
+      <li>Remove any content associated with the account</li>
+      <li>Permanently delete the account and associated data</li>
     </ul>
-
-  </div>
-
-  <h2>3. Reporting & Safety Tools</h2>
-
-  <div class="box">
-
     <p>
-      AIRnote provides reporting systems that allow users to report:
-    </p>
-
-    <br>
-
-    <ul>
-
-      <li>Notes</li>
-
-      <li>Comments and replies</li>
-
-      <li>User profiles</li>
-
-      <li>Inappropriate or harmful behavior</li>
-
-    </ul>
-
-    <br>
-
-    <p>
-      Reported content may be reviewed by moderation systems
-      and appropriate actions may be taken.
-    </p>
-
-  </div>
-
-  <h2>4. Moderation & Enforcement</h2>
-
-  <div class="box">
-
-    <p>
-      AIRnote may take actions including:
-    </p>
-
-    <br>
-
-    <ul>
-
-      <li>Removing violating content</li>
-
-      <li>Restricting accounts</li>
-
-      <li>Permanent bans</li>
-
-      <li>Reporting illegal activity to relevant authorities when required</li>
-
-    </ul>
-
-    <br>
-
-    <p>
-      We reserve the right to act immediately on content or accounts
-      that may threaten child safety.
-    </p>
-
-  </div>
-
-  <h2>5. Community Safety</h2>
-
-  <div class="box">
-
-    <p>
-      AIRnote encourages respectful and safe interactions between users.
-    </p>
-
-    <br>
-
-    <p>
-      Harassment, abusive behavior,
-      exploitation, or inappropriate conduct involving minors
-      is strictly prohibited.
-    </p>
-
-  </div>
-
-  <h2>6. Cooperation With Authorities</h2>
-
-  <div class="box">
-
-    <p>
-      AIRnote may cooperate with law enforcement
-      and child protection organizations where legally required.
-    </p>
-
-    <br>
-
-    <p>
-      Illegal child exploitation content may be reported to appropriate authorities.
-    </p>
-
-  </div>
-
-  <h2>7. Safety Contact</h2>
-
-  <div class="box">
-
-    <p>
-      If you have concerns related to child safety or harmful behavior,
-      contact us immediately:
-    </p>
-
-    <br>
-
-    <p>
-      <strong>Email:</strong>
-      <a href="mailto:trinitycreation.dev@gmail.com">
+      Parents or guardians who believe their child under 13 has created
+      an AIRnote account should contact us immediately at
+      <a href="mailto:trinitycreation.dev@gmail.com"
+         style="color:#fff; text-decoration:underline;">
         trinitycreation.dev@gmail.com
-      </a>
+      </a>.
+      We will act promptly.
+    </p>
+  </section>
+
+  <!-- 3 -->
+  <section id="s3">
+    <h2>03 &nbsp; Zero Tolerance Policy</h2>
+    <div class="callout callout-critical">
+      <p>
+        <strong>AIRnote has absolute zero tolerance for child sexual abuse
+        material (CSAM), child exploitation, grooming, or any form of
+        content or conduct that endangers minors.</strong>
+      </p>
+      <p style="margin-top:10px;">
+        Violations will result in immediate permanent account termination
+        and will be reported to law enforcement authorities and relevant
+        child protection organisations without exception.
+      </p>
+    </div>
+    <p>
+      This policy applies to all users regardless of age, location,
+      account history, or any other factor. There are no exceptions,
+      warnings, or second chances for violations of this nature.
+    </p>
+  </section>
+
+  <!-- 4 -->
+  <section id="s4">
+    <h2>04 &nbsp; Prohibited Content &amp; Conduct</h2>
+    <p>
+      The following content and behaviour are strictly and absolutely
+      prohibited on AIRnote:
     </p>
 
-  </div>
+    <h3>Sexual Content Involving Minors</h3>
+    <ul>
+      <li>Child sexual abuse material (CSAM) of any kind</li>
+      <li>Sexually explicit content involving anyone under the age of 18</li>
+      <li>Content that sexualises, objectifies, or fetishises minors in any way</li>
+      <li>Drawn, animated, illustrated, or AI-generated sexual content involving minors</li>
+      <li>Sharing, distributing, or linking to any of the above</li>
+    </ul>
 
-  <div class="footer">
+    <h3>Grooming &amp; Exploitation</h3>
+    <ul>
+      <li>Any attempt to establish inappropriate relationships with minors</li>
+      <li>Grooming behaviour including building excessive trust with a minor for exploitative purposes</li>
+      <li>Requesting, soliciting, or encouraging minors to share personal information, images, or meet in person</li>
+      <li>Using AIRnote's location features to identify, target, or track minors</li>
+      <li>Any form of coercion, manipulation, or pressure directed at a minor</li>
+    </ul>
 
-    © 2026 AIRnote • Built by Trinity Creation
+    <h3>Harmful Content Directed at Minors</h3>
+    <ul>
+      <li>Bullying, harassment, or intimidation of minors</li>
+      <li>Content that encourages self-harm, eating disorders, or dangerous behaviour among minors</li>
+      <li>Content designed to recruit minors into harmful groups or ideologies</li>
+      <li>Sharing personal information of minors without consent</li>
+    </ul>
 
-  </div>
+    <div class="callout callout-critical">
+      <p>
+        <strong>Any account found posting, sharing, distributing, or engaging
+        in the above will be permanently banned immediately and reported
+        to law enforcement. We do not issue warnings for these violations.</strong>
+      </p>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="s5">
+    <h2>05 &nbsp; How to Report</h2>
+    <p>
+      If you encounter any content or behaviour on AIRnote that you believe
+      endangers or exploits a child, please report it immediately.
+    </p>
+
+    <h3>In-App Reporting</h3>
+    <p>
+      Every post, comment, and user profile on AIRnote has a report button.
+      Use it to flag content that violates our child safety standards.
+      Reports are reviewed as a priority.
+    </p>
+
+    <h3>Direct Safety Contact</h3>
+    <p>
+      For urgent child safety concerns, contact us directly:
+    </p>
+    <div class="callout" style="margin-top:12px;">
+      <p><strong>Safety Email</strong></p>
+      <p style="margin-top:6px;">
+        <a href="mailto:trinitycreation.dev@gmail.com"
+           style="color:#fff; text-decoration:underline;">
+          trinitycreation.dev@gmail.com
+        </a>
+      </p>
+      <p style="margin-top:6px; font-size:13px; color:var(--text-muted);">
+        Include as much detail as possible — screenshots, usernames,
+        post links, and any other relevant information.
+        We treat all child safety reports as urgent.
+      </p>
+    </div>
+
+    <h3>External Reporting</h3>
+    <p>
+      If you believe a child is in immediate danger, contact your
+      local emergency services immediately. Do not wait.
+    </p>
+    <p>
+      You may also report CSAM directly to national authorities
+      and child protection organisations listed in Section 9.
+    </p>
+  </section>
+
+  <!-- 6 -->
+  <section id="s6">
+    <h2>06 &nbsp; Moderation &amp; Enforcement</h2>
+    <p>
+      AIRnote takes the following enforcement actions for child safety violations:
+    </p>
+
+    <h3>Immediate Actions</h3>
+    <ul>
+      <li>Immediate removal of all violating content</li>
+      <li>Immediate suspension of the account pending investigation</li>
+      <li>Preservation of all relevant data for law enforcement purposes</li>
+    </ul>
+
+    <h3>Permanent Actions</h3>
+    <ul>
+      <li>Permanent ban of the account with no possibility of reinstatement</li>
+      <li>Permanent ban of associated email addresses and devices where identifiable</li>
+      <li>Reporting of the violation and user information to law enforcement and child protection authorities</li>
+    </ul>
+
+    <h3>Reporting to Authorities</h3>
+    <p>
+      Trinity Creation will report confirmed or suspected CSAM and child
+      exploitation to:
+    </p>
+    <ul>
+      <li>The National Center for Missing and Exploited Children (NCMEC) CyberTipline where applicable</li>
+      <li>Relevant Indian law enforcement authorities under the Protection of Children from Sexual Offences (POCSO) Act, 2012</li>
+      <li>Any other relevant national or international child protection authority</li>
+    </ul>
+
+    <div class="callout callout-important">
+      <p>
+        <strong>We are legally required under Indian law (POCSO Act, 2012,
+        Section 19) and under Google Play policies to report child sexual
+        abuse material to authorities. We will comply with this obligation
+        without exception.</strong>
+      </p>
+    </div>
+  </section>
+
+  <!-- 7 -->
+  <section id="s7">
+    <h2>07 &nbsp; Cooperation With Authorities</h2>
+    <p>
+      AIRnote and Trinity Creation will cooperate fully with:
+    </p>
+    <ul>
+      <li>Indian law enforcement agencies investigating child safety violations</li>
+      <li>International law enforcement agencies where applicable</li>
+      <li>Child protection organisations and NGOs</li>
+      <li>Court orders and legal processes related to child safety</li>
+    </ul>
+    <p>
+      We will preserve and provide account data, content, IP addresses,
+      device information, and any other relevant information to authorised
+      law enforcement agencies upon valid legal request.
+    </p>
+    <p>
+      Cooperation with child safety investigations is not subject to
+      user consent or our standard data protection obligations.
+      Child safety takes absolute priority.
+    </p>
+  </section>
+
+  <!-- 8 -->
+  <section id="s8">
+    <h2>08 &nbsp; Parental Guidance</h2>
+    <p>
+      AIRnote is a public real-time platform. Posts are visible to all users.
+      We strongly encourage parents and guardians to:
+    </p>
+    <ul>
+      <li>Review AIRnote with their child before allowing them to use it</li>
+      <li>Discuss safe online behaviour and what to share publicly</li>
+      <li>Remind minors never to share their precise home address, school name, or daily routine publicly</li>
+      <li>Remind minors never to agree to meet strangers they have interacted with online</li>
+      <li>Monitor their child's use of AIRnote regularly</li>
+      <li>Encourage their child to report any uncomfortable interactions immediately</li>
+    </ul>
+    <p>
+      If your child encounters anything on AIRnote that makes them feel
+      uncomfortable, threatened, or unsafe, please contact us immediately
+      and report the content using the in-app reporting tool.
+    </p>
+  </section>
+
+  <!-- 9 -->
+  <section id="s9">
+    <h2>09 &nbsp; NCMEC &amp; External Resources</h2>
+    <p>
+      If you encounter child sexual abuse material anywhere online,
+      you can report it directly to the following organisations:
+    </p>
+
+    <div class="callout" style="margin-top:16px;">
+      <p><strong>NCMEC CyberTipline (USA)</strong></p>
+      <p style="margin-top:6px; font-size:14px;">
+        <a href="https://www.missingkids.org/gethelpnow/cybertipline"
+           target="_blank" rel="noopener"
+           style="color:#fff; text-decoration:underline;">
+          missingkids.org/gethelpnow/cybertipline ↗
+        </a>
+      </p>
+      <p style="margin-top:4px; font-size:13px; color:var(--text-muted);">
+        Report online child sexual exploitation globally.
+      </p>
+    </div>
+
+    <div class="callout" style="margin-top:12px;">
+      <p><strong>Childline India (India)</strong></p>
+      <p style="margin-top:6px; font-size:14px; color:var(--text-secondary);">
+        Helpline: <strong style="color:#fff;">1098</strong> (free, 24/7)
+      </p>
+      <p style="margin-top:4px; font-size:13px; color:var(--text-muted);">
+        National helpline for children in distress across India.
+      </p>
+    </div>
+
+    <div class="callout" style="margin-top:12px;">
+      <p><strong>National Commission for Protection of Child Rights (India)</strong></p>
+      <p style="margin-top:6px; font-size:14px;">
+        <a href="https://ncpcr.gov.in"
+           target="_blank" rel="noopener"
+           style="color:#fff; text-decoration:underline;">
+          ncpcr.gov.in ↗
+        </a>
+      </p>
+      <p style="margin-top:4px; font-size:13px; color:var(--text-muted);">
+        India's statutory body for child rights protection.
+      </p>
+    </div>
+
+    <div class="callout" style="margin-top:12px;">
+      <p><strong>Internet Watch Foundation (UK / Global)</strong></p>
+      <p style="margin-top:6px; font-size:14px;">
+        <a href="https://www.iwf.org.uk/report"
+           target="_blank" rel="noopener"
+           style="color:#fff; text-decoration:underline;">
+          iwf.org.uk/report ↗
+        </a>
+      </p>
+      <p style="margin-top:4px; font-size:13px; color:var(--text-muted);">
+        Report child sexual abuse imagery found online.
+      </p>
+    </div>
+  </section>
+
+  <!-- 10 -->
+  <section id="s10">
+    <h2>10 &nbsp; Safety Contact</h2>
+    <p>
+      For all child safety concerns, reports, or questions related to
+      this policy, contact us immediately:
+    </p>
+    <div class="callout" style="margin-top:16px;">
+      <p><strong>Trinity Creation — Child Safety</strong></p>
+      <p style="margin-top:8px;">
+        Email:
+        <a href="mailto:trinitycreation.dev@gmail.com"
+           style="color:#fff; text-decoration:underline;">
+          trinitycreation.dev@gmail.com
+        </a>
+      </p>
+      <p style="margin-top:6px; font-size:13px; color:var(--text-muted);">
+        Child safety reports are treated as our highest priority.
+        We aim to respond and act on all child safety concerns immediately
+        upon becoming aware of them.
+      </p>
+    </div>
+    <div class="callout callout-important" style="margin-top:16px;">
+      <p>
+        <strong>If a child is in immediate danger, do not email us first.
+        Call your local emergency services immediately.</strong>
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 AIRnote by Trinity Creation. All rights reserved.</p>
+    <p>Effective: 15 June 2026</p>
+  </footer>
 
 </body>
-
 </html>
