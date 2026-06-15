@@ -1,395 +1,580 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
   <meta charset="UTF-8" />
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
-
-  <title>About AIRnote</title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AIRnote — About</title>
   <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root {
+      --bg: #0a0a0a;
+      --surface: #111111;
+      --border: rgba(255,255,255,0.07);
+      --text-primary: #ffffff;
+      --text-secondary: #a0a0a0;
+      --text-muted: #555555;
     }
+
+    html { scroll-behavior: smooth; }
 
     body {
-
-      background: #0b0b0c;
-
-      color: #ffffff;
-
-      font-family: Arial, sans-serif;
-
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-size: 15px;
       line-height: 1.8;
+      padding: 0 24px 80px;
+      max-width: 780px;
+      margin: 0 auto;
     }
 
-    .container {
+    /* ── Hero ── */
+    header {
+      padding: 80px 0 64px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 64px;
+    }
 
-      max-width: 920px;
-
-      margin: auto;
-
-      padding: 24px;
+    .label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 20px;
     }
 
     h1 {
-
-      color: #03C75A;
-
-      font-size: 42px;
-
+      font-size: 56px;
       font-weight: 800;
-
-      letter-spacing: -1px;
-
-      margin-bottom: 8px;
-    }
-
-    h2 {
-
-      color: #03C75A;
-
-      margin-top: 38px;
-
-      margin-bottom: 14px;
-
-      font-size: 24px;
-
-      font-weight: 700;
-    }
-
-    p {
-
-      color: #d7d7d7;
-
-      font-size: 15px;
+      letter-spacing: -2px;
+      line-height: 1.05;
+      color: var(--text-primary);
+      margin-bottom: 24px;
     }
 
     .tagline {
-
-      color: #9a9a9a;
-
-      font-size: 16px;
-
-      margin-bottom: 26px;
+      font-size: 20px;
+      color: var(--text-secondary);
+      font-weight: 400;
+      max-width: 520px;
+      line-height: 1.6;
     }
 
-    .box {
-
-      background: #141417;
-
-      border: 1px solid rgba(255,255,255,0.05);
-
-      border-radius: 22px;
-
-      padding: 22px;
-
-      margin-top: 18px;
+    .tagline strong {
+      color: var(--text-primary);
+      font-weight: 600;
     }
 
-    .feature {
+    /* ── Sections ── */
+    section { margin-bottom: 64px; }
 
-      margin-bottom: 12px;
-
-      color: #d7d7d7;
-    }
-
-    .highlight {
-
-      color: #03C75A;
-
-      font-weight: bold;
-    }
-
-    ul {
-
-      padding-left: 22px;
-
-      margin-top: 12px;
-    }
-
-    li {
-
-      margin-bottom: 10px;
-
-      color: #d7d7d7;
-    }
-
-    .footer {
-
-      margin-top: 60px;
-
-      text-align: center;
-
-      color: #777;
-
+    h2 {
       font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
+    h2::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+    h3 {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    p { color: var(--text-secondary); margin-bottom: 14px; }
+    p:last-child { margin-bottom: 0; }
+
+    ul { padding-left: 20px; margin: 12px 0; }
+    li { color: var(--text-secondary); margin-bottom: 8px; padding-left: 4px; }
+    li::marker { color: var(--text-muted); }
+
+    strong { color: var(--text-primary); font-weight: 600; }
+
+    /* ── Big quote ── */
+    .big-quote {
+      border-left: 3px solid #fff;
+      padding: 20px 28px;
+      margin: 32px 0;
+      background: rgba(255,255,255,0.02);
+      border-radius: 0 12px 12px 0;
+    }
+
+    .big-quote p {
+      font-size: 19px;
+      font-weight: 500;
+      color: var(--text-primary);
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    /* ── Three shifts grid ── */
+    .shifts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 24px 0;
+    }
+
+    .shift-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px 20px;
+    }
+
+    .shift-icon {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    .shift-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .shift-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ── Comparison table ── */
+    .compare {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      margin: 24px 0;
+    }
+
+    .compare-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      border-bottom: 1px solid var(--border);
+      padding: 14px 20px;
+      font-size: 14px;
+    }
+
+    .compare-row:last-child { border-bottom: none; }
+
+    .compare-row.header {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      font-weight: 600;
+      padding: 12px 20px;
+    }
+
+    .compare-row span:first-child { color: var(--text-primary); font-weight: 500; }
+    .compare-row span:not(:first-child) { color: var(--text-secondary); }
+
+    /* ── Tabs (nearby + following) ── */
+    .tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 24px 0;
+    }
+
+    .tab-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px 20px;
+    }
+
+    .tab-name {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .tab-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .tab-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ── Callout ── */
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 20px 0;
+    }
+
+    .callout p { margin-bottom: 8px; }
+    .callout p:last-child { margin-bottom: 0; }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding-top: 40px;
+      margin-top: 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    footer p { font-size: 13px; color: var(--text-muted); margin: 0; }
+
+    footer a { color: var(--text-secondary); text-decoration: none; font-size: 13px; }
+    footer a:hover { color: #fff; }
+
+    @media (max-width: 560px) {
+      h1 { font-size: 36px; }
+      .shifts { grid-template-columns: 1fr; }
+      .tabs { grid-template-columns: 1fr; }
+      .compare-row { grid-template-columns: 1fr 1fr; }
+      .compare-row span:last-child { display: none; }
+      body { padding: 0 16px 60px; }
+      header { padding: 48px 0 40px; }
+    }
   </style>
-
 </head>
-
 <body>
 
-<div class="container">
+  <!-- ── Hero ── -->
+  <header>
+    <p class="label">About AIRnote</p>
+    <h1>Real life.<br>Right now.</h1>
+    <p class="tagline">
+      AIRnote is where people share what they are
+      <strong>seeing, experiencing, and feeling</strong> —
+      organised by where they are in the world,
+      right now.
+    </p>
+  </header>
 
-  <h1>AIRnote</h1>
-
-  <p class="tagline">
-    Real experiences. Useful notes. Interest-based discovery.
-  </p>
-
-  <div class="box">
-
+  <!-- ── The Problem ── -->
+  <section id="problem">
+    <h2>The Problem</h2>
+    <h3>The internet is full of content.<br>Almost none of it is real.</h3>
     <p>
-      AIRnote is an interest-based social platform where people share
-      real-life experiences through notes.
+      Social media today is built around performance. People post their best
+      moments, filtered and edited, designed to impress. News apps tell you
+      what's happening in politics and world events. Review apps give you
+      opinions written weeks after the experience.
+    </p>
+    <div class="big-quote">
+      <p>
+        "Nobody tells you the hotel AC is broken right now.
+        Nobody tells you the queue at this cafe is 40 minutes this morning.
+        Nobody tells you what it actually feels like to be in Tokyo today."
+      </p>
+    </div>
+    <p>
+      Real human experience — raw, immediate, honest — gets lost every single day.
+      It dies in WhatsApp chats. It gets buried in camera rolls. It disappears
+      because there was no good place to put it.
+    </p>
+    <p>
+      <strong>AIRnote is that place.</strong>
+    </p>
+  </section>
+
+  <!-- ── What AIRnote Is ── -->
+  <section id="what">
+    <h2>What AIRnote Is</h2>
+    <h3>Not news. Not highlights.<br>Just real life happening right now.</h3>
+    <p>
+      AIRnote is a real-time experience sharing platform. People share
+      small, honest, immediate moments from their real lives — organised
+      by location so others nearby or around the world can discover them.
+    </p>
+    <p>
+      Think of it as a living stream of human experience. Not what people
+      want you to think their life is like. What their life is actually like,
+      right now, today.
     </p>
 
-    <br>
+    <div class="compare">
+      <div class="compare-row header">
+        <span>Platform</span>
+        <span>What it shows</span>
+        <span>Feeling</span>
+      </div>
+      <div class="compare-row">
+        <span>Twitter / X</span>
+        <span>Opinions and news</span>
+        <span>Noisy, exhausting</span>
+      </div>
+      <div class="compare-row">
+        <span>Instagram</span>
+        <span>Highlight reels</span>
+        <span>Performed, filtered</span>
+      </div>
+      <div class="compare-row">
+        <span>Threads</span>
+        <span>Casual conversation</span>
+        <span>Opinion-driven</span>
+      </div>
+      <div class="compare-row">
+        <span>Google Reviews</span>
+        <span>Ratings from weeks ago</span>
+        <span>Delayed, formal</span>
+      </div>
+      <div class="compare-row">
+        <span><strong>AIRnote</strong></span>
+        <span><strong>Real moments right now</strong></span>
+        <span><strong>Honest, immediate</strong></span>
+      </div>
+    </div>
+  </section>
 
+  <!-- ── Three Shifts ── -->
+  <section id="shifts">
+    <h2>The Three Shifts</h2>
+    <h3>Every post on AIRnote<br>belongs to one of three human moments.</h3>
     <p>
-      Instead of endless random content,
-      AIRnote focuses on <span class="highlight">useful experiences</span> —
-      practical tips, discoveries, recommendations,
-      lessons, ideas, and things that genuinely help people.
+      When something real happens to you, one of three things is true —
+      you are seeing something, experiencing something, or feeling something.
+      AIRnote is built around these three fundamental human states.
     </p>
 
-  </div>
-
-  <h2>✨ What Makes AIRnote Different</h2>
-
-  <div class="box">
-
-    <p>
-      AIRnote is built around interests and discovery.
-    </p>
-
-    <br>
-
-    <p>
-      Users explore topics they care about —
-      like travel, fashion, productivity,
-      study notes, lifestyle, food, creativity,
-      countries, learning, and everyday experiences.
-    </p>
-
-    <br>
-
-    <p>
-      Instead of following influencers,
-      AIRnote helps users discover
-      <span class="highlight">valuable notes from real people</span>.
-    </p>
-
-  </div>
-
-  <h2>📝 Notes First Platform</h2>
-
-  <div class="box">
+    <div class="shifts">
+      <div class="shift-card">
+        <div class="shift-icon">👁️</div>
+        <div class="shift-title">Seeing</div>
+        <div class="shift-desc">
+          What you can observe right now. Traffic on the road.
+          Rain starting. A crowd at a concert. The sunset from your window.
+          Things that are happening in front of you, right this moment.
+        </div>
+      </div>
+      <div class="shift-card">
+        <div class="shift-icon">⚡</div>
+        <div class="shift-title">Experiencing</div>
+        <div class="shift-desc">
+          What you are living through right now. A hotel stay.
+          A book you just finished. A meal that shocked you.
+          A journey. A discovery. Things you are actively going through.
+        </div>
+      </div>
+      <div class="shift-card">
+        <div class="shift-icon">💬</div>
+        <div class="shift-title">Feeling</div>
+        <div class="shift-desc">
+          What is happening inside you right now. A heartbreak.
+          Exam stress. The joy of getting a visa. Overwhelm.
+          Pride. Loneliness. Emotions too big to keep inside.
+        </div>
+      </div>
+    </div>
 
     <p>
-      AIRnote is designed around notes.
+      These three shifts cover all of real human life. And none of them
+      are well served by any existing platform today.
     </p>
+  </section>
 
-    <br>
+  <!-- ── How It Works ── -->
+  <section id="how">
+    <h2>How It Works</h2>
+    <h3>Two tabs. Simple. Powerful.</h3>
 
+    <div class="tabs">
+      <div class="tab-card">
+        <div class="tab-name">Tab 1</div>
+        <div class="tab-title">📍 Nearby</div>
+        <div class="tab-desc">
+          See what people near you are seeing, experiencing, and feeling
+          right now. You set your location manually — as specific or
+          broad as you want. Nandyal. Hyderabad. Andhra Pradesh.
+          The feed updates with real moments from that area, ordered
+          by how recent they are.
+          <br><br>
+          This is the reason to open AIRnote every day.
+          Life around you changes every hour. So does the nearby feed.
+        </div>
+      </div>
+      <div class="tab-card">
+        <div class="tab-name">Tab 2</div>
+        <div class="tab-title">👥 Following</div>
+        <div class="tab-desc">
+          See posts from people you choose to follow. Not algorithm-chosen.
+          Not boosted by engagement. Just the people you actually want
+          to hear from, in chronological order.
+          <br><br>
+          No performance incentive. No follower counts driving behaviour.
+          Just honest posts from people whose real life matters to you.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Location System ── -->
+  <section id="location">
+    <h2>The Location System</h2>
+    <h3>No GPS. No tracking.<br>Just the city you choose to share.</h3>
     <p>
-      Users can create notes using:
+      AIRnote's location system is built on trust, not surveillance.
+      You type your location when you post — as specific or broad as
+      you are comfortable with.
     </p>
+    <div class="callout">
+      <p>
+        <strong>Example:</strong> Someone posts from "Shyam Nagar, Nandyal".
+        A user browsing "Nandyal" sees that post automatically.
+        A user browsing "Andhra Pradesh" also sees it.
+        But a user browsing "Hyderabad" does not.
+      </p>
+      <p style="margin-top:10px; font-size:13px; color:var(--text-muted);">
+        Your post reaches the right people without requiring your precise coordinates.
+        We never access your GPS. Location is always your choice, always your words.
+      </p>
+    </div>
+    <p>
+      This makes AIRnote genuinely hyperlocal — useful for your city,
+      your area, your street — without compromising your privacy or safety.
+    </p>
+  </section>
 
-    <br>
-
+  <!-- ── Why People Post ── -->
+  <section id="why">
+    <h2>Why People Post</h2>
+    <h3>Not for likes.<br>Not for followers.<br>Because they need to.</h3>
+    <p>
+      Every platform is built around a selfish motivation. Instagram works
+      because people want to share beautiful moments of their own life.
+      Twitter works because people want to express their opinions.
+      Pinterest works because people want to save things for themselves.
+    </p>
+    <p>
+      AIRnote works because of three selfish motivations that are
+      deeply human —
+    </p>
     <ul>
-
-      <li>Text-based experiences</li>
-
-      <li>Images and visual experiences</li>
-
-      <li>Links and recommendations</li>
-
-      <li>Topics and interests</li>
-
-      <li>Collections and pages</li>
-
+      <li><strong>Seeing something interesting</strong> → natural instinct to share what you witness</li>
+      <li><strong>Experiencing something significant</strong> → natural instinct to process it through sharing</li>
+      <li><strong>Feeling something overwhelming</strong> → natural instinct to express it before it bursts</li>
     </ul>
-
-    <br>
-
     <p>
-      Every note can help people learn something useful from real experiences.
+      None of these require an audience. None require validation.
+      The post happens because the person needed to post it.
+      The value to others is a side effect — and that side effect
+      is what makes AIRnote genuinely useful to discover.
     </p>
+  </section>
 
-  </div>
-
-  <h2>🔍 Explore Through Interests</h2>
-
-  <div class="box">
-
+  <!-- ── What Makes It Different ── -->
+  <section id="different">
+    <h2>What Makes It Different</h2>
+    <h3>Something big apps<br>can never copy.</h3>
     <p>
-      AIRnote personalizes discovery using interests and topic systems.
+      Every big platform has a business reason to suppress honest,
+      raw, immediate experience.
     </p>
-
-    <br>
-
-    <p>
-      Users can:
-    </p>
-
-    <br>
-
     <ul>
-
-      <li>Select interests they care about</li>
-
-      <li>Explore topic-based note feeds</li>
-
-      <li>Discover trending or useful experiences</li>
-
-      <li>View notes inside specific topics</li>
-
-      <li>Get recommendations based on interactions</li>
-
+      <li><strong>Instagram</strong> needs beautiful content to keep advertisers. Honest "the AC is broken" posts kill their model.</li>
+      <li><strong>Google Reviews</strong> needs structured data. Raw immediate human experience breaks their model.</li>
+      <li><strong>Twitter</strong> needs engagement and outrage. Calm honest moments get buried.</li>
+      <li><strong>Zomato / TripAdvisor</strong> are paid by businesses. "The food was cold tonight" posts hurt their revenue.</li>
     </ul>
+    <div class="big-quote">
+      <p>
+        AIRnote's entire business model depends on people being honest.
+        Every other app's business model depends on people performing.
+        That is not a feature difference. That is a fundamental difference
+        in reason to exist.
+      </p>
+    </div>
+  </section>
 
-  </div>
-
-  <h2>💬 Discussions & Community</h2>
-
-  <div class="box">
-
+  <!-- ── Who AIRnote Is For ── -->
+  <section id="who">
+    <h2>Who AIRnote Is For</h2>
+    <h3>Anyone with something real to say.</h3>
     <p>
-      AIRnote includes discussions through comments and replies.
+      AIRnote is for the person stuck in traffic who wants to warn others.
+      For the student who just got their exam results. For the traveller
+      who landed in a new city and is genuinely shocked by the taxi prices.
+      For the person lying awake at 2am with a feeling they cannot name.
+      For the cafe regular who knows which seat has the best light.
+      For anyone who has ever experienced something real and had nowhere
+      honest to put it.
     </p>
-
-    <br>
-
     <p>
-      Users can interact with notes,
-      share opinions, ask questions,
-      and continue conversations around experiences.
+      You do not need to be an influencer. You do not need followers.
+      You do not need a beautiful photo or a perfectly worded caption.
     </p>
-
-  </div>
-
-  <h2>📂 Pages & Collections</h2>
-
-  <div class="box">
-
     <p>
-      Users can organize notes into pages and collections.
+      <strong>You just need something real to say.</strong>
     </p>
+  </section>
 
-    <br>
-
+  <!-- ── Safety ── -->
+  <section id="safety">
+    <h2>Safety &amp; Community</h2>
+    <h3>Real life. Responsible platform.</h3>
     <p>
-      This helps users group experiences around:
+      AIRnote is a public platform. Everything you post can be seen by others.
+      We are committed to keeping AIRnote safe, honest, and respectful.
     </p>
-
-    <br>
-
     <ul>
-
-      <li>Travel plans</li>
-
-      <li>Study resources</li>
-
-      <li>Country guides</li>
-
-      <li>Lifestyle ideas</li>
-
-      <li>Fashion inspiration</li>
-
-      <li>Personal collections</li>
-
+      <li>Harmful, hateful, illegal, or exploitative content is strictly prohibited</li>
+      <li>Child safety is our absolute highest priority with zero tolerance</li>
+      <li>Every post and profile can be reported directly in the app</li>
+      <li>Violations result in immediate content removal and account action</li>
     </ul>
-
-  </div>
-
-  <h2>🔔 Smart Notifications</h2>
-
-  <div class="box">
-
     <p>
-      AIRnote provides in-app notifications for:
+      For full details see our
+      <a href="privacy_policy.html" style="color:#fff; text-decoration:underline;">Privacy Policy</a>,
+      <a href="terms.html" style="color:#fff; text-decoration:underline;">Terms &amp; Conditions</a>, and
+      <a href="child_safety.html" style="color:#fff; text-decoration:underline;">Child Safety Standards</a>.
     </p>
+  </section>
 
-    <br>
+  <!-- ── Contact ── -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="callout">
+      <p><strong>Trinity Creation</strong></p>
+      <p style="margin-top:8px;">
+        Email:
+        <a href="mailto:trinitycreation.dev@gmail.com"
+           style="color:#fff; text-decoration:underline;">
+          trinitycreation.dev@gmail.com
+        </a>
+      </p>
+    </div>
+  </section>
 
-    <ul>
-
-      <li>New notes in followed topics</li>
-
-      <li>Comments on your notes</li>
-
-      <li>Replies and interactions</li>
-
-      <li>Important platform updates</li>
-
-    </ul>
-
-  </div>
-
-  <h2>🔒 Safe & Respectful Platform</h2>
-
-  <div class="box">
-
-    <p>
-      AIRnote is committed to building a healthy and respectful environment.
-    </p>
-
-    <br>
-
-    <p>
-      Harmful, illegal, hateful,
-      or inappropriate content is not allowed.
-    </p>
-
-    <br>
-
-    <p>
-      Users can report notes,
-      comments, or profiles for moderation review.
-    </p>
-
-  </div>
-
-  <h2>🚀 Growing Platform</h2>
-
-  <div class="box">
-
-    <p>
-      AIRnote is continuously evolving with new features,
-      discovery systems, and improvements.
-    </p>
-
-    <br>
-
-    <p>
-      Our goal is to create a platform where
-      useful experiences are easier to discover,
-      organize, and share globally.
-    </p>
-
-  </div>
-
-  <div class="footer">
-
-    © 2026 AIRnote • Built by Trinity Creation
-
-  </div>
-
-</div>
+  <footer>
+    <p>© 2026 AIRnote by Trinity Creation. All rights reserved.</p>
+    <div style="display:flex; gap:20px;">
+      <a href="privacy_policy.html">Privacy Policy</a>
+      <a href="terms.html">Terms</a>
+      <a href="child_safety.html">Child Safety</a>
+    </div>
+  </footer>
 
 </body>
-
 </html>
